@@ -30,6 +30,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
       body: _screenList[_selectedIndex],
       backgroundColor: Colors.blueAccent.shade400,
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.blueAccent.shade400,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.currency_exchange),
