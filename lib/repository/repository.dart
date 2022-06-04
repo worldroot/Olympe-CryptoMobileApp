@@ -15,6 +15,7 @@ class Repository {
       Response response = await _dio.get(currencyListingAPI);
       return ExposedCoinsDataModel.fromJson((response.data));
     } catch (error, stacktrace) {
+      // ignore: avoid_print
       print("Exception occured: $error stackTrace: $stacktrace");
       return ExposedCoinsDataModel.withError("error");
     }
