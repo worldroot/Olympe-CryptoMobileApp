@@ -62,7 +62,7 @@ class _CoinChartWidgetState extends State<CoinChartWidget> {
                 borderRadius: BorderRadius.all(
                   Radius.circular(18),
                 ),
-                color: Color(0xff232d37)),
+                color: Color.fromARGB(8, 0, 124, 249)),
             child: Padding(
               padding: const EdgeInsets.only(
                   right: 18.0, left: 12.0, top: 24, bottom: 12),
@@ -80,6 +80,7 @@ class _CoinChartWidgetState extends State<CoinChartWidget> {
             color: Colors.white,
             fontSize: 17,
             letterSpacing: 2,
+            fontWeight: FontWeight.bold,
           ),
           textAlign: TextAlign.center,
         ),
@@ -115,8 +116,8 @@ class _CoinChartWidgetState extends State<CoinChartWidget> {
         verticalInterval: 10,
         getDrawingHorizontalLine: (value) {
           return FlLine(
-            color: const Color(0xff37434d),
-            strokeWidth: 2,
+            color: Color.fromARGB(122, 55, 67, 77),
+            strokeWidth: 1,
           );
         },
         getDrawingVerticalLine: (value) {
@@ -171,7 +172,7 @@ class _CoinChartWidgetState extends State<CoinChartWidget> {
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
           ),
-          barWidth: 2,
+          barWidth: 4,
           isStrokeCapRound: true,
           dotData: FlDotData(
             show: false,
@@ -180,7 +181,7 @@ class _CoinChartWidgetState extends State<CoinChartWidget> {
             show: true,
             gradient: LinearGradient(
               colors: gradientColors
-                  .map((color) => color.withOpacity(0.3))
+                  .map((color) => color.withOpacity(0.7))
                   .toList(),
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,

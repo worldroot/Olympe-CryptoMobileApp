@@ -28,7 +28,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _screenList[_selectedIndex],
-      backgroundColor: const Color.fromRGBO(11, 12, 54, 1),
+      backgroundColor: Colors.blueAccent.shade400,
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(

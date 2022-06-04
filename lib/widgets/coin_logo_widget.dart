@@ -45,7 +45,10 @@ class CoinLogoWidget extends StatelessWidget {
           const SizedBox(height: 2.0),
           Text(
             "\$" + coin.quoteModel.usdModel.price.toStringAsFixed(2),
-            style: textStyle.subtitle2,
+            style: const TextStyle(
+              fontSize: 14.0,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const SizedBox(height: 2.0),
           Container(

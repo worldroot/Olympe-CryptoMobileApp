@@ -44,7 +44,6 @@ class CoinListWidget extends StatelessWidget {
                   ChartData(coinPrice.percentChange_24h, 24),
                   ChartData(coinPrice.percentChange_1h, 1),
                 ];
-                print('data 0 ${data[0].value}');
                 return GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -60,8 +59,22 @@ class CoinListWidget extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(
                         vertical: 8.0, horizontal: 16.0),
                     decoration: BoxDecoration(
-                      color: const Color.fromRGBO(0, 0, 0, 0.6),
-                      borderRadius: BorderRadius.circular(16.0),
+                      color: Colors.blue[400],
+                      borderRadius: BorderRadius.circular(20.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.blue.shade700,
+                          blurRadius: 10,
+                          spreadRadius: 1,
+                          offset: const Offset(4, 4),
+                        ),
+                        BoxShadow(
+                          blurRadius: 10,
+                          spreadRadius: 1,
+                          color: Colors.blue.shade700,
+                          offset: const Offset(-4, -4),
+                        ),
+                      ],
                     ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,

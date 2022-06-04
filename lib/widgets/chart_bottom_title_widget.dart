@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 Widget bottomTitleWidgets(double value, TitleMeta meta) {
   const style = TextStyle(
-    color: Color(0xff68737d),
+    color: Colors.white,
     fontWeight: FontWeight.bold,
-    fontSize: 16,
+    fontSize: 10,
   );
   Widget text;
   switch (value.toInt()) {

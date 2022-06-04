@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 Widget leftTitleWidgets(double value, TitleMeta meta) {
   const style = TextStyle(
-    color: Color(0xff67727d),
+    color: Colors.white,
     fontWeight: FontWeight.bold,
     fontSize: 10,
   );
