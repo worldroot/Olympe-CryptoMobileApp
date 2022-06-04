@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:olympe/models/FetchCoins/chart_data_model.dart';
 import 'package:olympe/models/FetchCoins/coin_data_model.dart';
-import 'package:olympe/widgets/coin_randomed_chart_widget.dart';
+import 'package:olympe/widgets/coin_show_chart_widget.dart';
 import 'package:olympe/widgets/coin_show_app_bar.dart';
 
 class CoinShowScreen extends StatelessWidget {
@@ -48,7 +48,7 @@ class CoinShowScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 16.0),
+                    margin: const EdgeInsets.symmetric(horizontal: 20.0),
                     height: 420.0,
                     width: double.infinity,
                     child: Column(

@@ -29,8 +29,8 @@ class _CoinRandomedChartWidgetState extends State<CoinRandomedChartWidget> {
     return SliverPersistentHeader(
       pinned: true,
       delegate: SliverAppBarDelegate(
-        minHeight: 360.0,
-        maxHeight: 360.0,
+        minHeight: 400.0,
+        maxHeight: 400.0,
         child: Padding(
           padding: const EdgeInsets.only(top: 32.0),
           child: Column(
@@ -51,6 +51,7 @@ class _CoinRandomedChartWidgetState extends State<CoinRandomedChartWidget> {
                   coinPrice: widget.coinPrice,
                   color: Colors.green,
                   data: widget.data),
+              const SizedBox(height: 8.0),
               ToggleButtons(
                 borderRadius: BorderRadius.circular(8.0),
                 borderColor: Colors.indigoAccent,
