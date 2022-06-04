@@ -44,6 +44,7 @@ class CoinListWidget extends StatelessWidget {
                   ChartData(coinPrice.percentChange_24h, 24),
                   ChartData(coinPrice.percentChange_1h, 1),
                 ];
+                print('data 0 ${data[0].value}');
                 return GestureDetector(
                   onTap: () {
                     Navigator.push(

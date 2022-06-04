@@ -27,28 +27,14 @@ class CoinShowScreen extends StatelessWidget {
     var outputFormat = DateFormat('MM/dd/yyyy hh:mm a');
     var outputDate = outputFormat.format(inputDate);
     var data = [
-      ChartData(next(110, 140), 1),
-      ChartData(next(9, 41), 2),
-      ChartData(next(140, 200), 3),
       ChartData(coinPrice.percentChange_24h, 4),
       ChartData(coinPrice.percentChange_1h, 5),
-      ChartData(next(110, 140), 6),
-      ChartData(next(9, 41), 7),
-      ChartData(next(140, 200), 8),
       ChartData(coinPrice.percentChange_24h, 9),
       ChartData(coinPrice.percentChange_1h, 10),
-      ChartData(next(110, 140), 12),
-      ChartData(next(9, 41), 13),
       ChartData(coinPrice.percentChange_1h, 14),
-      ChartData(next(9, 41), 15),
-      ChartData(next(140, 200), 16),
       ChartData(coinPrice.percentChange_24h, 17),
       ChartData(coinPrice.percentChange_1h, 18),
-      ChartData(next(110, 140), 19),
-      ChartData(next(9, 41), 20),
-      ChartData(next(140, 200), 21),
       ChartData(coinPrice.percentChange_24h, 22),
-      ChartData(next(110, 140), 23),
     ];
 
     return Scaffold(

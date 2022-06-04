@@ -1,12 +1,12 @@
 class UsdModel {
   final num price;
   final num volume24h;
-  final num percentChange_1h;
-  final num percentChange_24h;
-  final num percentChange_7d;
-  final num percentChange_30d;
-  final num percentChange_60d;
-  final num percentChange_90d;
+  final double percentChange_1h;
+  final double percentChange_24h;
+  final double percentChange_7d;
+  final double percentChange_30d;
+  final double percentChange_60d;
+  final double percentChange_90d;
   final num marketCap;
   final String lastUpdated;
 
@@ -29,10 +29,9 @@ class UsdModel {
       percentChange_1h: json["percent_change_1h"] ?? 0.0,
       percentChange_24h: json["percent_change_24h"] ?? 0.0,
       percentChange_7d: json["percent_change_7d"] ?? 0.0,
-      percentChange_30d:
-          json["percent_change_30d"] == null ? 0.0 : json["percent_change_7d"],
-      percentChange_60d: json["percent_change60d"] ?? 0.0,
-      percentChange_90d: json["percent_change90d"] ?? 0.0,
+      percentChange_30d: json["percent_change_30d"] ?? 0.0,
+      percentChange_60d: json["percent_change_60d"] ?? 0.0,
+      percentChange_90d: json["percent_change_90d"] ?? 0.0,
       marketCap: json["market_cap"] ?? 0.0,
       lastUpdated: json["last_updated"],
     );

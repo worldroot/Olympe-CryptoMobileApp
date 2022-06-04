@@ -1,5 +1,5 @@
 class ChartData {
-  final num value;
+  final double value;
   final int year;
 
   ChartData(this.value, this.year);

@@ -38,6 +38,7 @@ dependencies:
   syncfusion_flutter_charts: ^20.1.57
   flutter_svg: ^1.0.3
   cached_network_image: ^3.2.0
+  fl_chart: ^0.51.0
 
 dev_dependencies:
   flutter_test:
