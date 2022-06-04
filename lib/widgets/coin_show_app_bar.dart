@@ -41,7 +41,7 @@ class CoinShowAppBar extends StatelessWidget {
             ),
             title: Text(
               coin.name + " " + coin.symbol + " #" + coin.cmcRank.toString(),
-              style: Theme.of(context).textTheme.headline5,
+              style: Theme.of(context).textTheme.headline6,
               overflow: TextOverflow.ellipsis,
             ),
             // subtitle: Text(coin.slug),
