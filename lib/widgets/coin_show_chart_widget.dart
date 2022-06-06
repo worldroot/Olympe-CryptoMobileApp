@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:olympe/models/FetchCoins/chart_data_model.dart';
 import 'package:olympe/models/FetchCoins/usd_model.dart';
+import 'package:olympe/widgets/coin_chart_price_widget.dart';
 import 'package:olympe/widgets/coin_chart_widget.dart';
 import 'package:olympe/widgets/sliver_app_bar_delegate.dart';
 import 'package:olympe/widgets/toggle_button_widget.dart';
@@ -47,7 +48,7 @@ class _CoinRandomedChartWidgetState extends State<CoinRandomedChartWidget> {
                   color: Colors.grey,
                 ),
               ),
-              CoinChartWidget(
+              CoinChartPriceWidget(
                   coinPrice: widget.coinPrice,
                   color: Colors.green,
                   data: widget.data),

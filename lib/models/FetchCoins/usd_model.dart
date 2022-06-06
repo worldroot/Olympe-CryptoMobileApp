@@ -7,6 +7,7 @@ class UsdModel {
   final double percentChange_30d;
   final double percentChange_60d;
   final double percentChange_90d;
+  final double price_30d;
   final num marketCap;
   final String lastUpdated;
 
@@ -20,7 +21,8 @@ class UsdModel {
       required this.percentChange_60d,
       required this.percentChange_90d,
       required this.marketCap,
-      required this.lastUpdated});
+      required this.lastUpdated,
+      required this.price_30d});
 
   factory UsdModel.fromJson(Map<String, dynamic> json) {
     return UsdModel(
@@ -34,6 +36,7 @@ class UsdModel {
       percentChange_90d: json["percent_change_90d"] ?? 0.0,
       marketCap: json["market_cap"] ?? 0.0,
       lastUpdated: json["last_updated"],
+      price_30d: json["percent_change_30d"] * json["price"] + json["price"],
     );
   }
 }

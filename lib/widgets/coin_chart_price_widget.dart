@@ -7,8 +7,8 @@ import 'package:olympe/widgets/chart_bottom_title_widget.dart';
 import 'package:olympe/widgets/chart_left_title_widget.dart';
 import 'package:fl_chart/fl_chart.dart';
 
-class CoinChartWidget extends StatefulWidget {
-  const CoinChartWidget(
+class CoinChartPriceWidget extends StatefulWidget {
+  const CoinChartPriceWidget(
       {Key? key,
       required this.data,
       required this.coinPrice,
@@ -19,12 +19,12 @@ class CoinChartWidget extends StatefulWidget {
   final MaterialColor color;
 
   @override
-  _CoinChartWidgetState createState() =>
+  _CoinChartPriceWidgetState createState() =>
       // ignore: no_logic_in_create_state
-      _CoinChartWidgetState(data, coinPrice, color);
+      _CoinChartPriceWidgetState(data, coinPrice, color);
 }
 
-class _CoinChartWidgetState extends State<CoinChartWidget> {
+class _CoinChartPriceWidgetState extends State<CoinChartPriceWidget> {
   final List<Color> gradientColors = [
     const Color(0xff23b6e6),
     const Color(0xff02d39a),
@@ -46,7 +46,7 @@ class _CoinChartWidgetState extends State<CoinChartWidget> {
     price_30d: 0,
   );
 
-  _CoinChartWidgetState(
+  _CoinChartPriceWidgetState(
       List<ChartData> data, UsdModel coinPrice, MaterialColor color) {
     _data = data;
     _coinPrice = coinPrice;
@@ -74,18 +74,17 @@ class _CoinChartWidgetState extends State<CoinChartWidget> {
             ),
           ),
         ),
-        const Align(
-          alignment: Alignment.topRight,
-          child: Text(
-            '         Volatility change',
-            style: TextStyle(
-              fontFamily: "Oswald",
-              color: Colors.white,
-              fontSize: 18,
-              letterSpacing: 2,
-            ),
+
+        const Text(
+          'Volatility change',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 17,
+            letterSpacing: 2,
+            fontWeight: FontWeight.bold,
           ),
-        )
+          textAlign: TextAlign.center,
+        ),
 
         // SizedBox(
         //   width: 60,
@@ -159,8 +158,8 @@ class _CoinChartWidgetState extends State<CoinChartWidget> {
           border: Border.all(color: const Color(0xff37434d), width: 1)),
       minX: 0,
       maxX: 2,
-      minY: -50,
-      maxY: 50,
+      minY: -30,
+      maxY: 40,
       lineBarsData: [
         LineChartBarData(
           spots: [
