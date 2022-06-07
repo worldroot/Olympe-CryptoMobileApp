@@ -21,7 +21,8 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
   static const List<Widget> _screenList = [
     FirstScreen(),
     SecondScreen(),
-    ProfileScreen(),
+    LoginScreen(),
+    RegisterScreen(),
   ];
 
   @override
@@ -30,7 +31,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
       body: _screenList[_selectedIndex],
       backgroundColor: Colors.blueAccent.shade400,
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.blueAccent.shade400,
+        backgroundColor: Color.fromRGBO(65, 116, 249, 1),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.currency_exchange),
