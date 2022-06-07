@@ -49,8 +49,8 @@ class CoinShowScreen extends StatelessWidget {
                 children: [
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 20.0),
-                    height: 420.0,
-                    width: double.infinity,
+                    height: 500.0,
+                    width: 500.0,
                     child: Column(
                       children: [
                         Row(
@@ -60,6 +60,7 @@ class CoinShowScreen extends StatelessWidget {
                               "Circulating Supply: ",
                               style: Theme.of(context).textTheme.subtitle1,
                             ),
+                            const SizedBox(height: 8.0),
                             Text(
                               coin.circulatingSupply.toString(),
                               style: Theme.of(context).textTheme.headline6,

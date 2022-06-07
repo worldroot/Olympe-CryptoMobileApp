@@ -21,7 +21,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
   static const List<Widget> _screenList = [
     FirstScreen(),
     SecondScreen(),
-    ThirdScreen(),
+    ProfileScreen(),
   ];
 
   @override
