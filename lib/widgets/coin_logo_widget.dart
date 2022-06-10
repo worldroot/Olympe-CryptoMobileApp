@@ -23,7 +23,7 @@ class CoinLogoWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(left: 16.0),
       height: 150.0,
-      width: 96.0,
+      width: 120.0,
       //78 Remaining
       child: Column(
         children: [
