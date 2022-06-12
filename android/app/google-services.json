@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "901564160466",
+    "project_id": "olympe-4f6cc",
+    "storage_bucket": "olympe-4f6cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:901564160466:android:bf1d1df4d15d2e4acfd00b",
+        "android_client_info": {
+          "package_name": "com.example.olympe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "901564160466-7tm3jm0jafkkjpt6pn6t76vvlbdhn9vf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQ2eIeXWxK5zd5IjzsbFnrySy_eDyfnAs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "901564160466-7tm3jm0jafkkjpt6pn6t76vvlbdhn9vf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "901564160466-in9g1ajmc4o88efcp230omckh7dorpe1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.olympe"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
