@@ -41,6 +41,13 @@ dependencies:
   fl_chart: ^0.51.0
   firebase_core: ^1.17.1
 
+
+  # Database related
+  hive: 
+  hive_flutter:   
+  path_provider: 
+  flutter_displaymode: ^0.3.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

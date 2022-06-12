@@ -1,9 +1,69 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:olympe/Controllers/auth_controller.dart';
 import 'package:olympe/components/background.dart';
+import 'package:olympe/components/snackbar.dart';
 import 'package:olympe/screens/register_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController usernamecontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
+
+  final AuthController _authController = AuthController();
+
+  handleLogin() {
+    if (usernamecontroller.text.isEmpty) {
+      ShowSnackBar().showSnackBar(
+        context,
+        "Please provide your username",
+        duration: const Duration(seconds: 2),
+        noAction: false,
+      );
+      return;
+    }
+
+    if (passwordcontroller.text.isEmpty) {
+      ShowSnackBar().showSnackBar(
+        context,
+        "Please provide your password",
+        duration: const Duration(seconds: 2),
+        noAction: false,
+      );
+      return;
+    }
+
+    _authController
+        .login(usernamecontroller.text, passwordcontroller.text)
+        .then((connectedUser) {
+      if (connectedUser.error == false) {
+        var box = Hive.box('user_data');
+        box.put('id', connectedUser.id!);
+        box.put('name', connectedUser.name!);
+        box.put('username', connectedUser.username!);
+        box.put('phone', connectedUser.phone!);
+        box.put('password', connectedUser.password!);
+        box.put('avatar', connectedUser.avatar!);
+        box.put('token', connectedUser.token!);
+
+
+        Navigator.popAndPushNamed(context, "/home");
+      } else {
+        ShowSnackBar().showSnackBar(
+          context,
+          "check your credentials",
+          duration: const Duration(seconds: 2),
+          noAction: false,
+        );
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,15 +90,17 @@ class LoginScreen extends StatelessWidget {
             Container(
               alignment: Alignment.center,
               margin: const EdgeInsets.symmetric(horizontal: 40),
-              child: const TextField(
-                decoration: InputDecoration(labelText: "Username"),
+              child: TextField(
+                controller: usernamecontroller,
+                decoration: const InputDecoration(labelText: "Username"),
               ),
             ),
             SizedBox(height: size.height * 0.03),
             Container(
               alignment: Alignment.center,
               margin: const EdgeInsets.symmetric(horizontal: 40),
-              child: const TextField(
+              child: TextField(
+                controller: passwordcontroller,
                 decoration: const InputDecoration(labelText: "Password"),
                 obscureText: true,
               ),
@@ -56,7 +118,7 @@ class LoginScreen extends StatelessWidget {
               alignment: Alignment.centerRight,
               margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: handleLogin,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(80.0)),
                 textColor: Colors.white,
