@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:olympe/components/snackbar.dart';
 import 'package:olympe/screens/screens.dart';
 
 class MyHomeScreen extends StatefulWidget {
@@ -18,16 +19,45 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
     });
   }
 
+  DateTime? backButtonPressTime;
+
+  Future<bool> handleWillPop(BuildContext context) async {
+    final now = DateTime.now();
+    final backButtonHasNotBeenPressedOrSnackBarHasBeenClosed =
+        backButtonPressTime == null ||
+            now.difference(backButtonPressTime!) > const Duration(seconds: 3);
+
+    if (backButtonHasNotBeenPressedOrSnackBarHasBeenClosed) {
+      backButtonPressTime = now;
+      ShowSnackBar().showSnackBar(
+        context,
+        "Press Back Again to Exit App",
+        duration: const Duration(seconds: 2),
+        noAction: true,
+      );
+      return false;
+    }
+    return true;
+  }
+
   static const List<Widget> _screenList = [
     FirstScreen(),
     SecondScreen(),
-    LoginScreen(),
+    ProfileScreen(),
   ];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _screenList[_selectedIndex],
+      body: WillPopScope(
+          onWillPop: () => handleWillPop(context),
+          child: _screenList[_selectedIndex]),
       backgroundColor: Colors.blueAccent.shade400,
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Color.fromRGBO(65, 116, 249, 1),

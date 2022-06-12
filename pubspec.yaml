@@ -40,6 +40,13 @@ dependencies:
   cached_network_image: ^3.2.0
   fl_chart: ^0.51.0
 
+
+  # Database related
+  hive: 
+  hive_flutter:   
+  path_provider: 
+  flutter_displaymode: ^0.3.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

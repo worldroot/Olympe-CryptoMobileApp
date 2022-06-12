@@ -44,7 +44,7 @@ const register = (req, res, next) => {
 
         if (err) {
             console.log('erreur password hash');
-            res.json({
+            return res.json({
                 message: err
             })
         }
@@ -66,7 +66,7 @@ const register = (req, res, next) => {
                     user.save().then(user => {
                         const hash = { id: user._id }
                         const accessToken = generateAccessToken(hash)
-                        res.status(200).send(JSON.stringify({ //200 OK
+                        return res.status(200).send(JSON.stringify({ //200 OK
                             _id: user._id,
                             name: user.name,
                             username: user.username,
@@ -77,7 +77,7 @@ const register = (req, res, next) => {
                         }))
                     })
                         .catch(error => {
-                            res.status(500).send(JSON.stringify({
+                            return res.status(500).send(JSON.stringify({
                                 statusCode: 500,
                                 message: error
                             }))
@@ -149,7 +149,7 @@ route.get('/', index)
 
 //authentification
 route.post('/login', login) //email,password
-route.post('/register', upload.single("avatar"), register)
+route.post('/register'/*, upload.single("avatar")*/, register)
 
 
 //uploads

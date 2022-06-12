@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:olympe/Controllers/auth_controller.dart';
 import 'package:olympe/components/background.dart';
+import 'package:olympe/components/snackbar.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -10,7 +12,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  AuthController _authController = AuthController();
+  final AuthController _authController = AuthController();
 
   TextEditingController namecontroller = TextEditingController();
   TextEditingController usernamecontroller = TextEditingController();
@@ -19,22 +21,42 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   handleSignup() {
     if (namecontroller.text.isEmpty) {
-      print("name is empty");
+      ShowSnackBar().showSnackBar(
+        context,
+        "Please provide your name",
+        duration: const Duration(seconds: 2),
+        noAction: false,
+      );
       return;
     }
 
     if (mobilecontroller.text.isEmpty) {
-      print("mobile is empty");
+      ShowSnackBar().showSnackBar(
+        context,
+        "Please provide your phone",
+        duration: const Duration(seconds: 2),
+        noAction: false,
+      );
       return;
     }
 
     if (usernamecontroller.text.isEmpty) {
-      print("username is empty");
+      ShowSnackBar().showSnackBar(
+        context,
+        "Please provide your username",
+        duration: const Duration(seconds: 2),
+        noAction: false,
+      );
       return;
     }
 
     if (passwordcontroller.text.isEmpty) {
-      print("password is empty");
+      ShowSnackBar().showSnackBar(
+        context,
+        "Please provide your password",
+        duration: const Duration(seconds: 2),
+        noAction: false,
+      );
       return;
     }
 
@@ -42,15 +64,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
         .register(usernamecontroller.text, passwordcontroller.text,
             namecontroller.text, mobilecontroller.text)
         .then((connectedUser) {
-          //check for errors
-
-          //store user id in hive database
-
-          //store user token in hive database
-
-          //redirection
-          
-        });
+      //check for error
+      if (connectedUser.error == false) {
+        Navigator.pop(context);
+        ShowSnackBar().showSnackBar(
+          context,
+          "User added successfully",
+          duration: const Duration(seconds: 2),
+          noAction: false,
+        );
+        //redirection
+      } else {
+        ShowSnackBar().showSnackBar(
+          context,
+          "fama erreur",
+          duration: const Duration(seconds: 2),
+          noAction: false,
+        );
+      }
+    });
   }
 
   @override
@@ -119,7 +151,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 margin:
                     const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
                 child: RaisedButton(
-                  onPressed: handleSignup(),
+                  onPressed: handleSignup,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(80.0)),
                   textColor: Colors.white,

@@ -12,20 +12,16 @@ class FirstScreen extends StatefulWidget {
   _FirstScreenState createState() => _FirstScreenState();
 }
 
-class _FirstScreenState extends State<FirstScreen> {
-  late Future<ExposedCoinsDataModel> _futureCoins;
-  late Repository repository;
-  @override
-  void initState() {
-    repository = Repository();
-    _futureCoins = repository.getCoins();
-    super.initState();
-  }
+class _FirstScreenState extends State<FirstScreen>{
+
+
+  final Repository repository =  Repository();
+
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<ExposedCoinsDataModel>(
-      future: _futureCoins,
+      future: repository.getCoins(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasData) {

@@ -3,16 +3,16 @@ class User {
   String? name;
   String? username;
   String? password;
-  String? mobile;
+  String? phone;
   String? avatar;
   String? token;
-
+  bool? error;
   User(
       {required this.id,
       required this.name,
       required this.username,
       required this.password,
-      required this.mobile,
+      required this.phone,
       required this.avatar,
       required this.token});
 
@@ -21,18 +21,20 @@ class User {
     name = json['name'] as String;
     username = json['username'] as String;
     password = json['password'] as String;
-    mobile = json['mobile'] as String;
+    phone = json['phone'] as String;
     avatar = json['avatar'] as String;
     token = json['token'] as String;
+    error = false;
   }
 
-  User.withError(String error) {
-    id = error;
+  User.withError() {
+    id = "";
     name = "";
     username = "";
     password = "";
-    mobile = "";
+    phone = "";
     avatar = "";
     token = "";
+    error = true;
   }
 }
