@@ -112,8 +112,8 @@ class _CoinChartWidgetState extends State<CoinChartWidget> {
   LineChartData mainData(List<ChartData> data, coinPrice) {
     return LineChartData(
       gridData: FlGridData(
-        show: true,
-        drawVerticalLine: true,
+        show: false,
+        drawVerticalLine: false,
         horizontalInterval: 10,
         verticalInterval: 10,
         getDrawingHorizontalLine: (value) {
@@ -130,7 +130,7 @@ class _CoinChartWidgetState extends State<CoinChartWidget> {
         },
       ),
       titlesData: FlTitlesData(
-        show: true,
+        show: false,
         rightTitles: AxisTitles(
           sideTitles: SideTitles(showTitles: false),
         ),
@@ -139,7 +139,7 @@ class _CoinChartWidgetState extends State<CoinChartWidget> {
         ),
         bottomTitles: AxisTitles(
           sideTitles: SideTitles(
-            showTitles: true,
+            showTitles: false,
             reservedSize: 30,
             interval: 1,
             getTitlesWidget: bottomTitleWidgets,
@@ -147,7 +147,7 @@ class _CoinChartWidgetState extends State<CoinChartWidget> {
         ),
         leftTitles: AxisTitles(
           sideTitles: SideTitles(
-            showTitles: true,
+            showTitles: false,
             interval: 1,
             getTitlesWidget: leftTitleWidgets,
             reservedSize: 42,
@@ -155,12 +155,12 @@ class _CoinChartWidgetState extends State<CoinChartWidget> {
         ),
       ),
       borderData: FlBorderData(
-          show: true,
+          show: false,
           border: Border.all(color: const Color(0xff37434d), width: 1)),
       minX: 0,
       maxX: 2,
-      minY: -50,
-      maxY: 50,
+      minY: -80,
+      maxY: 60,
       lineBarsData: [
         LineChartBarData(
           spots: [
@@ -174,7 +174,7 @@ class _CoinChartWidgetState extends State<CoinChartWidget> {
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
           ),
-          barWidth: 4,
+          barWidth: 6,
           isStrokeCapRound: true,
           dotData: FlDotData(
             show: false,
