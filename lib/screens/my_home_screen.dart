@@ -22,7 +22,6 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
     FirstScreen(),
     SecondScreen(),
     LoginScreen(),
-    RegisterScreen(),
   ];
 
   @override
