@@ -141,7 +141,7 @@ class _MetricsScreenState extends State<MetricsScreen>
       switch (i) {
         case 0:
           return PieChartSectionData(
-            color: const Color(0xff0293ee),
+            color: const Color(0xfff8b250), //0xff0293ee
             value: globalMetricsData!.btcDominance,
             title: "${globalMetricsData!.btcDominance?.ceilToDouble()} %",
             radius: radius,
@@ -152,13 +152,13 @@ class _MetricsScreenState extends State<MetricsScreen>
             badgeWidget: _Badge(
               "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/icon/btc.png",
               size: widgetSize,
-              borderColor: const Color(0xff0293ee),
+              borderColor: const Color(0xfff8b250), //0xff0293ee
             ),
             badgePositionPercentageOffset: .98,
           );
         case 1:
           return PieChartSectionData(
-            color: const Color(0xfff8b250),
+            color: const Color(0xff0293ee), //0xfff8b250
             value: globalMetricsData!.ethDominance,
             title: "${globalMetricsData!.ethDominance?.ceilToDouble()} %",
             radius: radius,
@@ -169,7 +169,7 @@ class _MetricsScreenState extends State<MetricsScreen>
             badgeWidget: _Badge(
               "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/icon/eth.png",
               size: widgetSize,
-              borderColor: const Color(0xfff8b250),
+              borderColor: const Color(0xff0293ee), //0xfff8b250
             ),
             badgePositionPercentageOffset: .98,
           );
@@ -180,7 +180,7 @@ class _MetricsScreenState extends State<MetricsScreen>
                 (globalMetricsData!.btcDominance! +
                     globalMetricsData!.ethDominance!),
             title:
-                '${100 - (globalMetricsData!.btcDominance! + globalMetricsData!.ethDominance!).ceilToDouble()} %',
+                'Others ${100 - (globalMetricsData!.btcDominance! + globalMetricsData!.ethDominance!).ceilToDouble()} %',
             radius: radius,
             titleStyle: TextStyle(
                 fontSize: fontSize,
@@ -193,7 +193,7 @@ class _MetricsScreenState extends State<MetricsScreen>
             ),
             badgePositionPercentageOffset: .98,
           );
-        case 3:
+        case 3: // Not used for now
           return PieChartSectionData(
             color: const Color(0xff13d38e),
             value: 15,
