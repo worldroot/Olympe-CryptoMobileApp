@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:olympe/models/FetchCoins/chart_data_model.dart';
 import 'package:olympe/models/FetchCoins/coin_data_model.dart';
 import 'package:olympe/screens/coin_show_screen.dart';
+import 'package:olympe/statics.dart';
 import 'package:olympe/widgets/coin_chart_widget.dart';
 import 'package:olympe/widgets/coin_logo_widget.dart';
 
@@ -19,7 +20,6 @@ class CoinListWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
           const SizedBox(
             height: 8.0,
           ),
@@ -52,9 +52,8 @@ class CoinListWidget extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(
                         vertical: 8.0, horizontal: 16.0),
                     decoration: BoxDecoration(
-                      color: const Color(0xff222632).withOpacity(0.6),
+                      color: Palette.backgroundColor,
                       borderRadius: BorderRadius.circular(20.0),
-
                     ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,

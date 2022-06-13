@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:olympe/models/FetchCoins/coin_data_model.dart';
 import 'package:olympe/models/FetchCoins/usd_model.dart';
+import 'package:olympe/statics.dart';
 
 class CoinLogoWidget extends StatelessWidget {
   final CoinDataModel coin;
@@ -16,7 +17,7 @@ class CoinLogoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var coinIconUrl =
-        "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/";
+        "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/icon/";
     TextTheme textStyle = Theme.of(context).textTheme;
     UsdModel coinPrice = coin.quoteModel.usdModel;
 
@@ -40,15 +41,15 @@ class CoinLogoWidget extends StatelessWidget {
           const SizedBox(height: 4.0),
           Text(
             coin.symbol,
-            style: textStyle.subtitle1,
+            style: const TextStyle(color: Palette.textColor),
           ),
           const SizedBox(height: 2.0),
           Text(
             "\$" + coin.quoteModel.usdModel.price.toStringAsFixed(2),
             style: const TextStyle(
-              fontSize: 14.0,
-              fontWeight: FontWeight.bold,
-            ),
+                fontSize: 14.0,
+                fontWeight: FontWeight.bold,
+                color: Palette.textColor),
           ),
           const SizedBox(height: 2.0),
           Container(

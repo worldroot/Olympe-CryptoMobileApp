@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:olympe/models/FetchCoins/chart_data_model.dart';
 import 'package:olympe/models/FetchCoins/usd_model.dart';
+import 'package:olympe/statics.dart';
 import 'package:olympe/widgets/chart_bottom_title_widget.dart';
 import 'package:olympe/widgets/chart_left_title_widget.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -26,7 +27,7 @@ class CoinChartWidget extends StatefulWidget {
 
 class _CoinChartWidgetState extends State<CoinChartWidget> {
   final List<Color> gradientColors = [
-    const Color(0xff23b6e6),
+    Color.fromARGB(255, 236, 31, 28),
     const Color(0xff02d39a),
   ];
 
@@ -63,7 +64,7 @@ class _CoinChartWidgetState extends State<CoinChartWidget> {
                 borderRadius: BorderRadius.all(
                   Radius.circular(18),
                 ),
-                color: Color.fromARGB(8, 0, 124, 249)),
+                color: Palette.backgroundColor),
             child: Padding(
               padding: const EdgeInsets.only(
                   right: 18.0, left: 12.0, top: 24, bottom: 12),
@@ -112,14 +113,14 @@ class _CoinChartWidgetState extends State<CoinChartWidget> {
   LineChartData mainData(List<ChartData> data, coinPrice) {
     return LineChartData(
       gridData: FlGridData(
-        show: false,
+        show: true,
         drawVerticalLine: false,
-        horizontalInterval: 10,
+        horizontalInterval: 100,
         verticalInterval: 10,
         getDrawingHorizontalLine: (value) {
           return FlLine(
             color: Color.fromARGB(122, 55, 67, 77),
-            strokeWidth: 1,
+            strokeWidth: 6,
           );
         },
         getDrawingVerticalLine: (value) {

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:olympe/components/snackbar.dart';
+import 'package:olympe/screens/metrics_screen.dart';
 import 'package:olympe/screens/screens.dart';
 import 'package:olympe/statics.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
@@ -60,7 +61,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-        final String username =
+    final String username =
         Hive.box("user_data").get("name", defaultValue: "Guest");
     return Scaffold(
       appBar: AppBar(
@@ -68,7 +69,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
         elevation: 0,
         title: Text(
           "Welcome to Olympe ${capitalize(username)} 👋",
-          style: const TextStyle(fontSize: 25,fontFamily: "Oswald"),
+          style: const TextStyle(fontSize: 25, fontFamily: "Oswald"),
         ),
         toolbarHeight: 70,
         actions: [
@@ -90,6 +91,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
             children: const [
               FirstScreen(),
               SecondScreen(),
+              MetricsScreen(),
               ProfileScreen(),
             ],
           )),
@@ -119,6 +121,13 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                       title: const Text("DashBoard"),
                       selectedColor: Palette.primaryColor,
                       unselectedColor: const Color(0xff4c505c)),
+
+                  SalomonBottomBarItem(
+                      icon: const Icon(CupertinoIcons.chart_bar_alt_fill),
+                      title: const Text("Metrics"),
+                      selectedColor: Palette.primaryColor,
+                      unselectedColor: const Color(0xff4c505c)),
+
                   SalomonBottomBarItem(
                       icon: const Icon(CupertinoIcons.settings),
                       title: const Text("Profile"),
