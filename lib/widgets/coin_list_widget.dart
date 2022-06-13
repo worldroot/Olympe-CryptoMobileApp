@@ -19,12 +19,7 @@ class CoinListWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
-            child: Text("Olympe Crypto App",
-                style: TextStyle(
-                    fontFamily: "Oswald", fontSize: 25.0, color: Colors.white)),
-          ),
+
           const SizedBox(
             height: 8.0,
           ),
@@ -57,22 +52,9 @@ class CoinListWidget extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(
                         vertical: 8.0, horizontal: 16.0),
                     decoration: BoxDecoration(
-                      color: Colors.blue[400],
+                      color: const Color(0xff222632).withOpacity(0.6),
                       borderRadius: BorderRadius.circular(20.0),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.blue.shade700,
-                          blurRadius: 10,
-                          spreadRadius: 1,
-                          offset: const Offset(4, 4),
-                        ),
-                        BoxShadow(
-                          blurRadius: 10,
-                          spreadRadius: 1,
-                          color: Colors.blue.shade700,
-                          offset: const Offset(-4, -4),
-                        ),
-                      ],
+
                     ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,

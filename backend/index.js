@@ -28,6 +28,7 @@ app.use('/', require('./routes/navigation'))
 //rest controllers 
 app.use('/uploads', express.static(__dirname + '/public'));
 app.use('/api/users', require('./Controllers/usersController'))
+app.use('/api/transactions', require('./Controllers/transactionsController'))
 
 //404 error handling
 app.use(function(req,res,next) {

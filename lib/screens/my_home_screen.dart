@@ -1,6 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:olympe/components/snackbar.dart';
 import 'package:olympe/screens/screens.dart';
+import 'package:olympe/statics.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class MyHomeScreen extends StatefulWidget {
   const MyHomeScreen({
@@ -12,12 +16,8 @@ class MyHomeScreen extends StatefulWidget {
 }
 
 class _MyHomeScreenState extends State<MyHomeScreen> {
-  int _selectedIndex = 0;
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  final ValueNotifier<int> _selectedIndex = ValueNotifier<int>(0);
+  final PageController _pageController = PageController();
 
   DateTime? backButtonPressTime;
 
@@ -40,44 +40,95 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
     return true;
   }
 
-  static const List<Widget> _screenList = [
-    FirstScreen(),
-    SecondScreen(),
-    ProfileScreen(),
-  ];
-
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
   @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  void _onItemTapped(int index) {
+    _selectedIndex.value = index;
+    _pageController.jumpToPage(
+      index,
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
+        final String username =
+        Hive.box("user_data").get("name", defaultValue: "Guest");
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Palette.backgroundColor,
+        elevation: 0,
+        title: Text(
+          "Welcome to Olympe ${capitalize(username)} 👋",
+          style: const TextStyle(fontSize: 25,fontFamily: "Oswald"),
+        ),
+        toolbarHeight: 70,
+        actions: [
+          IconButton(
+              onPressed: () {
+                Hive.box("user_data").clear();
+                Navigator.popAndPushNamed(context, "/login");
+              },
+              icon: const Icon(Icons.logout))
+        ],
+      ),
       body: WillPopScope(
           onWillPop: () => handleWillPop(context),
-          child: _screenList[_selectedIndex]),
-      backgroundColor: Colors.blueAccent.shade400,
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Color.fromRGBO(65, 116, 249, 1),
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.currency_exchange),
-            label: 'Crypto',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard),
-            label: 'DashBoard',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
+          child: PageView(
+            onPageChanged: (indx) {
+              _selectedIndex.value = indx;
+            },
+            controller: _pageController,
+            children: const [
+              FirstScreen(),
+              SecondScreen(),
+              ProfileScreen(),
+            ],
+          )),
+      backgroundColor: Palette.backgroundColor,
+      bottomNavigationBar: SafeArea(
+        child: ValueListenableBuilder(
+          valueListenable: _selectedIndex,
+          builder: (BuildContext context, int indexValue, Widget? child) {
+            return AnimatedContainer(
+              duration: const Duration(milliseconds: 100),
+              height: 60,
+              child: SalomonBottomBar(
+                currentIndex: indexValue,
+                onTap: (index) {
+                  _onItemTapped(index);
+                },
+                items: [
+                  /// Home
+                  SalomonBottomBarItem(
+                      icon: const Icon(CupertinoIcons.money_dollar),
+                      title: const Text("Crypto"),
+                      selectedColor: Palette.primaryColor,
+                      unselectedColor: const Color(0xff4c505c)),
+
+                  SalomonBottomBarItem(
+                      icon: const Icon(CupertinoIcons.chart_bar_alt_fill),
+                      title: const Text("DashBoard"),
+                      selectedColor: Palette.primaryColor,
+                      unselectedColor: const Color(0xff4c505c)),
+                  SalomonBottomBarItem(
+                      icon: const Icon(CupertinoIcons.settings),
+                      title: const Text("Profile"),
+                      selectedColor: Palette.primaryColor,
+                      unselectedColor: const Color(0xff4c505c)),
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }

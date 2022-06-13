@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 
+import 'package:hive/hive.dart';
 import 'package:olympe/Controllers/request_controller.dart';
 import 'package:olympe/models/user_model.dart';
 
@@ -41,4 +42,7 @@ class AuthController {
       return User.withError();
     }
   }
+
+
+
 }
