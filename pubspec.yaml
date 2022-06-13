@@ -47,7 +47,10 @@ dependencies:
   hive_flutter:   
   path_provider: 
   flutter_displaymode: ^0.3.2
+  salomon_bottom_bar: ^3.3.0
 
+  intl: # dateTime
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

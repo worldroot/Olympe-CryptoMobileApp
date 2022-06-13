@@ -1,10 +1,12 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:olympe/screens/screens.dart';
 
 import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:olympe/statics.dart';
 import 'package:path_provider/path_provider.dart';
 
 Future<void> main() async {
@@ -74,29 +76,28 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    var textSize = Theme.of(context).textTheme;
+
+
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        systemNavigationBarColor: Palette.backgroundColor,
+        statusBarIconBrightness: Brightness.light,
+        systemNavigationBarIconBrightness: Brightness.light,
+      ),
+    );
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+    ]);
+
     return MaterialApp(
       title: 'Olympe',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        textTheme: Theme.of(context).textTheme.copyWith(
-              headline4: textSize.headline4!.copyWith(
-                color: Colors.white,
-              ),
-              headline5: textSize.headline5!.copyWith(color: Colors.white),
-              headline6: textSize.headline6!.copyWith(
-                color: Colors.white,
-              ),
-              subtitle1: textSize.subtitle1!.copyWith(
-                color: Colors.white,
-              ),
-              subtitle2: textSize.subtitle2!.copyWith(
-                color: Colors.grey,
-              ),
-              overline: textSize.overline!.copyWith(color: Colors.grey),
-            ),
-      ),
-      themeMode: ThemeMode.dark,
+      theme: themeDarkData(context),
+      darkTheme: themeDarkData(context),
       initialRoute: '/',
       routes: {
         '/': (context) => initialFuntion(),

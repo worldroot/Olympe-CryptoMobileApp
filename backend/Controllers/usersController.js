@@ -10,7 +10,7 @@ const { generateAccessToken } = require('../utils/jwt');
 
 const multer = require("multer");
 const path = require("path");
-const { UserRole } = require('../utils/enum');
+
 
 const storageData = multer.diskStorage({
     destination: (req, file, clb) => {
