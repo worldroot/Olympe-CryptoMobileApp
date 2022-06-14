@@ -48,6 +48,8 @@ const addTransaction = (req, res, next) => {
         acountBalanceUSD: req.body.acountBalanceUSD,
         acountBalanceCOIN: req.body.acountBalanceCOIN,
     })
+
+    console.log(req.body);
     transaction.save()
         .then(response => {
             res.json({
