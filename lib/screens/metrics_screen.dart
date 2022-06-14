@@ -3,6 +3,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:olympe/components/glassmorphism.dart';
 import 'package:olympe/components/snackbar.dart';
 import 'package:olympe/models/exposed_global_metrics_model.dart';
 import 'package:olympe/repository/repository.dart';
@@ -48,7 +49,7 @@ class _MetricsScreenState extends State<MetricsScreen>
         : Stack(
             children: [
               RefreshIndicator(
-                backgroundColor: Palette.buttonColor,
+                backgroundColor: Colors.transparent,
                 color: Palette.primaryColor,
                 onRefresh: () async {
                   await Future.delayed(const Duration(seconds: 2));
@@ -91,13 +92,20 @@ class _MetricsScreenState extends State<MetricsScreen>
                         margin: const EdgeInsets.only(bottom: 5, top: 40),
                         child: const Text(
                           "Global Metrics",
-                          style: TextStyle(color: Colors.white, fontSize: 20),
+                          style: TextStyle(
+                              fontFamily: "Oswald",
+                              color: Colors.white,
+                              fontSize: 20),
                         ),
                       ),
-                      Card(
-                        color: Palette.backgroundColor,
+                      GlassMorphism(
+                        color: Colors.transparent,
+                        blur: 10,
+                        myWidth: 280,
+                        myHeight: double.infinity,
+                        opacity: 0.2,
                         child: AspectRatio(
-                          aspectRatio: 1,
+                          aspectRatio: 1.2,
                           child: PieChart(
                             PieChartData(
                                 pieTouchData: PieTouchData(touchCallback:
@@ -249,9 +257,9 @@ class _BadgeState extends State<_Badge> {
         ),
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: Colors.black.withOpacity(.5),
+            color: Colors.transparent,
             offset: const Offset(3, 3),
-            blurRadius: 3,
+            blurRadius: 0.2,
           ),
         ],
       ),
