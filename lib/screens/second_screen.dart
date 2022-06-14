@@ -155,14 +155,11 @@ class _SecondScreenState extends State<SecondScreen>
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Container(
-                        height: 150,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            color: Colors.indigo[900], //Colors.indigo[900]
-                            borderRadius: const BorderRadius.only(
-                                bottomRight: Radius.circular(30),
-                                bottomLeft: Radius.circular(30))),
+                      GlassMorphism(
+                        blur: 10,
+                        opacity: 0.2,
+                        myWidth: 140,
+                        myHeight: double.infinity,
                         child: Column(children: <Widget>[
                           Container(
                               padding: const EdgeInsets.only(left: 10),
