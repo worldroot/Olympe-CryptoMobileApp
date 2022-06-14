@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:olympe/Controllers/transaction_controller.dart';
 import 'package:olympe/components/snackbar.dart';
 import 'package:olympe/models/transaction_model.dart';
@@ -44,6 +45,89 @@ class _SecondScreenState extends State<SecondScreen>
       }
     });
   }
+
+  // Container _buildAcountCoinTextField() {
+  //   return Container(
+  //     decoration: BoxDecoration(
+  //         color: const Color(0xff181a26),
+  //         borderRadius: BorderRadius.circular(30)),
+  //     width: MediaQuery.of(context).size.width - 40,
+  //     height: 60,
+  //     padding: const EdgeInsets.all(5),
+  //     child: Row(
+  //       mainAxisAlignment: MainAxisAlignment.center,
+  //       children: [
+  //         Container(
+  //           decoration: BoxDecoration(
+  //               color: Palette.cardColor,
+  //               borderRadius: BorderRadius.circular(30)),
+  //           width: 100,
+  //           height: 60,
+  //         ),
+  //         const SizedBox(width: 5),
+  //         Container(
+  //           padding: const EdgeInsets.only(top: 10),
+  //           width: MediaQuery.of(context).size.width - 40 - 100 - 5 - 40 - 10,
+  //           height: 60,
+  //           child: const TextField(
+  //             style: TextStyle(
+  //               color: Colors.white,
+  //             ),
+  //             decoration: InputDecoration(
+  //                 focusedBorder: OutlineInputBorder(
+  //                   borderSide: BorderSide(color: Colors.transparent),
+  //                 ),
+  //                 enabledBorder: OutlineInputBorder(
+  //                   borderSide: BorderSide(color: Colors.transparent),
+  //                 ),
+  //                 hintText: '0.4 ETH',
+  //                 hintStyle: TextStyle(color: Colors.white54)),
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
+
+  // handleSend() {
+  //   showBarModalBottomSheet(
+  //     expand: true,
+  //     context: context,
+  //     backgroundColor: Colors.transparent,
+  //     builder: (context) => Container(
+  //       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+  //       color: Palette.backgroundColor,
+  //       child: Column(
+  //         crossAxisAlignment: CrossAxisAlignment.start,
+  //         mainAxisAlignment: MainAxisAlignment.start,
+  //         children: [
+  //           const Text("Send"),
+  //           Container(
+  //             padding: const EdgeInsets.all(20),
+  //             decoration: BoxDecoration(
+  //               color: Palette.cardColor,
+  //               borderRadius: BorderRadius.circular(25),
+  //               boxShadow: [
+  //                 BoxShadow(
+  //                   color: Colors.black.withOpacity(0.1),
+  //                   spreadRadius: 7,
+  //                   blurRadius: 5,
+  //                   offset: const Offset(0, 3), // changes position of shadow
+  //                 ),
+  //               ],
+  //             ),
+  //             height: MediaQuery.of(context).size.height - 200,
+  //             child: Column(
+  //               children: [
+  //                 _buildAcountCoinTextField(),
+  //               ],
+  //             ),
+  //           )
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
 
   bool isLoading = true;
   List<Transaction> transactions = [];
@@ -110,7 +194,8 @@ class _SecondScreenState extends State<SecondScreen>
                                   backgroundColor: Palette.buttonColor,
                                   textColor: Colors.white,
                                   onPressed: () {
-                                    print("test");
+                                    Navigator.pushNamed(
+                                        context, "/addTransaction");
                                   }),
                               const SizedBox(width: 25),
                               WalletButton(
