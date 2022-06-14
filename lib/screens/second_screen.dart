@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:olympe/Controllers/transaction_controller.dart';
+import 'package:olympe/components/glassmorphism.dart';
 import 'package:olympe/components/snackbar.dart';
 import 'package:olympe/models/transaction_model.dart';
 import 'package:olympe/statics.dart';
@@ -153,31 +154,52 @@ class _SecondScreenState extends State<SecondScreen>
                   padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Center(
-                        child: Container(
-                          padding: const EdgeInsets.only(left: 10),
-                          margin: const EdgeInsets.only(bottom: 5, top: 10),
-                          child: Text(
-                            "Current Balance",
-                            style: TextStyle(
-                                color: Colors.white.withOpacity(0.9),
-                                fontSize: 17),
+                    children: <Widget>[
+                      Container(
+                        height: 150,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            color: Colors.indigo[900], //Colors.indigo[900]
+                            borderRadius: const BorderRadius.only(
+                                bottomRight: Radius.circular(30),
+                                bottomLeft: Radius.circular(30))),
+                        child: Column(children: <Widget>[
+                          Container(
+                              padding: const EdgeInsets.only(left: 10),
+                              margin: const EdgeInsets.only(bottom: 5, top: 10),
+                              child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Center(
+                                      child: Text(
+                                        "Current Balance",
+                                        style: TextStyle(
+                                          color: Colors.white.withOpacity(0.9),
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                    )
+                                  ])),
+                          const SizedBox(
+                            width: 25,
+                            height: 10,
                           ),
-                        ),
-                      ),
-                      Center(
-                        child: Container(
-                          padding: const EdgeInsets.only(left: 10),
-                          margin: const EdgeInsets.only(bottom: 5, top: 10),
-                          child: const Text(
-                            "500 DT",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 45),
-                          ),
-                        ),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: const <Widget>[
+                                Icon(Icons.attach_money,
+                                    color: Colors.white, size: 35),
+                                Center(
+                                  child: Text(
+                                    "500 DT",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 35),
+                                  ),
+                                ),
+                              ]),
+                        ]),
                       ),
                       Center(
                         child: Container(
