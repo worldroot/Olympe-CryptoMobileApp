@@ -81,8 +81,9 @@ class _MetricsScreenState extends State<MetricsScreen>
                             " ${globalMetricsData!.quote!.uSD!.totalMarketCap} \$"
                                 .toString(),
                             style: const TextStyle(
+                                fontFamily: "Montserrat",
                                 color: Colors.white,
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w800,
                                 fontSize: 20),
                           ),
                         ),
@@ -154,6 +155,7 @@ class _MetricsScreenState extends State<MetricsScreen>
             title: "${globalMetricsData!.btcDominance?.ceilToDouble()} %",
             radius: radius,
             titleStyle: TextStyle(
+                fontFamily: "Oswald",
                 fontSize: fontSize,
                 fontWeight: FontWeight.bold,
                 color: const Color(0xffffffff)),
@@ -171,6 +173,7 @@ class _MetricsScreenState extends State<MetricsScreen>
             title: "${globalMetricsData!.ethDominance?.ceilToDouble()} %",
             radius: radius,
             titleStyle: TextStyle(
+                fontFamily: "Oswald",
                 fontSize: fontSize,
                 fontWeight: FontWeight.bold,
                 color: const Color(0xffffffff)),
@@ -191,6 +194,7 @@ class _MetricsScreenState extends State<MetricsScreen>
                 'Others ${100 - (globalMetricsData!.btcDominance! + globalMetricsData!.ethDominance!).ceilToDouble()} %',
             radius: radius,
             titleStyle: TextStyle(
+                fontFamily: "Oswald",
                 fontSize: fontSize,
                 fontWeight: FontWeight.bold,
                 color: const Color(0xffffffff)),
