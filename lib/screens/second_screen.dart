@@ -159,6 +159,7 @@ class _SecondScreenState extends State<SecondScreen>
                         blur: 10,
                         opacity: 0.2,
                         myWidth: 140,
+                        color: Colors.blueAccent.shade400,
                         myHeight: double.infinity,
                         child: Column(children: <Widget>[
                           Container(

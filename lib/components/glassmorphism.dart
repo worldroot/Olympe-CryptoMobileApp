@@ -7,6 +7,7 @@ class GlassMorphism extends StatelessWidget {
   final Widget child;
   final double myWidth;
   final double myHeight;
+  final Color color;
 
   const GlassMorphism({
     Key? key,
@@ -15,6 +16,7 @@ class GlassMorphism extends StatelessWidget {
     required this.child,
     required this.myWidth,
     required this.myHeight,
+    required this.color,
   }) : super(key: key);
 
   @override
@@ -27,7 +29,7 @@ class GlassMorphism extends StatelessWidget {
         height: myWidth,
         width: myHeight,
         decoration: BoxDecoration(
-          color: Colors.indigo.withOpacity(opacity), // Colors.indigo[900]
+          color: color.withOpacity(opacity), // Colors.indigo[900]
           borderRadius: const BorderRadius.only(
               bottomRight: Radius.circular(30),
               bottomLeft: Radius.circular(30)),
