@@ -32,20 +32,25 @@ class TransactionController {
 
   Future<BackendResponse> addTransaction(Transaction transaction) async {
     String token = Hive.box('user_data').get('token');
+    // Map<String, dynamic> body = <String, dynamic>{
+    //   'description': transaction.description,
+    //   'coinAmount': transaction.coinAmount,
+    //   'usdAmount': transaction.usdAmount,
+    //   'type': transaction.type,
+    //   'coin': transaction.coin,
+    //   'coinPrice': transaction.coinPrice,
+    //   'acountBalanceUSD': transaction.acountBalanceUSD,
+    //   'acountBalanceCOIN': transaction.acountBalanceCOIN,
+    // };
 
-    final response = await _requestController
-        .post(apiRoute: "api/transactions/add", body: <String, dynamic>{
-      'description': transaction.description,
-      'coinAmount': transaction.coinAmount,
-      'usdAmount': transaction.usdAmount,
-      'type': transaction.type,
-      'coin': transaction.coin,
-      'coinPrice': transaction.coinPrice,
-      'acountBalanceUSD': transaction.acountBalanceUSD,
-      'acountBalanceCOIN': transaction.acountBalanceCOIN,
-    }, headers: {
-      'Authorization': 'Bearer $token'
-    });
+ 
+    final response = await _requestController.post(
+        apiRoute: "api/transactions/add",
+        body: transaction.toJson(),
+        headers: {
+          'content-type': 'application/json',
+          'Authorization': 'Bearer $token'
+        });
 
     if (response.statusCode == 200) {
       var body = json.decode(response.body);
