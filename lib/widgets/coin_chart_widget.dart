@@ -64,7 +64,7 @@ class _CoinChartWidgetState extends State<CoinChartWidget> {
                 borderRadius: BorderRadius.all(
                   Radius.circular(18),
                 ),
-                color: Palette.backgroundColor),
+                color: Colors.transparent),
             child: Padding(
               padding: const EdgeInsets.only(
                   right: 18.0, left: 12.0, top: 24, bottom: 12),

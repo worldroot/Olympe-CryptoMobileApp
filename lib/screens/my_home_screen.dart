@@ -63,82 +63,90 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
   Widget build(BuildContext context) {
     final String username =
         Hive.box("user_data").get("name", defaultValue: "Guest");
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Palette.backgroundColor,
-        elevation: 0,
-        title: Text(
-          "Welcome to Olympe ${capitalize(username)} 👋",
-          style: const TextStyle(fontSize: 25, fontFamily: "Oswald"),
-        ),
-        toolbarHeight: 70,
-        actions: [
-          IconButton(
-              onPressed: () {
-                Hive.box("user_data").clear();
-                Navigator.popAndPushNamed(context, "/login");
-              },
-              icon: const Icon(Icons.logout))
-        ],
-      ),
-      body: WillPopScope(
-          onWillPop: () => handleWillPop(context),
-          child: PageView(
-            onPageChanged: (indx) {
-              _selectedIndex.value = indx;
-            },
-            controller: _pageController,
-            children: const [
-              FirstScreen(),
-              SecondScreen(),
-              MetricsScreen(),
-              ProfileScreen(),
+    return Stack(
+      children: <Widget>[
+        Image.asset("assets/images/wp.png",
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            fit: BoxFit.cover),
+        Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            title: Text(
+              "Welcome to Olympe ${capitalize(username)} 👋",
+              style: const TextStyle(fontSize: 25, fontFamily: "Oswald"),
+            ),
+            toolbarHeight: 70,
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    Hive.box("user_data").clear();
+                    Navigator.popAndPushNamed(context, "/login");
+                  },
+                  icon: const Icon(Icons.logout))
             ],
-          )),
-      backgroundColor: Palette.backgroundColor,
-      bottomNavigationBar: SafeArea(
-        child: ValueListenableBuilder(
-          valueListenable: _selectedIndex,
-          builder: (BuildContext context, int indexValue, Widget? child) {
-            return AnimatedContainer(
-              duration: const Duration(milliseconds: 100),
-              height: 60,
-              child: SalomonBottomBar(
-                currentIndex: indexValue,
-                onTap: (index) {
-                  _onItemTapped(index);
+          ),
+          body: WillPopScope(
+              onWillPop: () => handleWillPop(context),
+              child: PageView(
+                onPageChanged: (indx) {
+                  _selectedIndex.value = indx;
                 },
-                items: [
-                  /// Home
-                  SalomonBottomBarItem(
-                      icon: const Icon(CupertinoIcons.money_dollar),
-                      title: const Text("Crypto"),
-                      selectedColor: Palette.primaryColor,
-                      unselectedColor: const Color(0xff4c505c)),
-
-                  SalomonBottomBarItem(
-                      icon: const Icon(CupertinoIcons.chart_bar_alt_fill),
-                      title: const Text("DashBoard"),
-                      selectedColor: Palette.primaryColor,
-                      unselectedColor: const Color(0xff4c505c)),
-
-                  SalomonBottomBarItem(
-                      icon: const Icon(CupertinoIcons.chart_bar_alt_fill),
-                      title: const Text("Metrics"),
-                      selectedColor: Palette.primaryColor,
-                      unselectedColor: const Color(0xff4c505c)),
-
-                  SalomonBottomBarItem(
-                      icon: const Icon(CupertinoIcons.settings),
-                      title: const Text("Profile"),
-                      selectedColor: Palette.primaryColor,
-                      unselectedColor: const Color(0xff4c505c)),
+                controller: _pageController,
+                children: const [
+                  FirstScreen(),
+                  SecondScreen(),
+                  MetricsScreen(),
+                  ProfileScreen(),
                 ],
-              ),
-            );
-          },
+              )),
+          backgroundColor: Colors.transparent,
+          bottomNavigationBar: SafeArea(
+            child: ValueListenableBuilder(
+              valueListenable: _selectedIndex,
+              builder: (BuildContext context, int indexValue, Widget? child) {
+                return AnimatedContainer(
+                  duration: const Duration(milliseconds: 100),
+                  height: 60,
+                  child: SalomonBottomBar(
+                    currentIndex: indexValue,
+                    onTap: (index) {
+                      _onItemTapped(index);
+                    },
+                    items: [
+                      /// Home
+                      SalomonBottomBarItem(
+                          icon: const Icon(CupertinoIcons.money_dollar),
+                          title: const Text("Crypto"),
+                          selectedColor: Palette.primaryColor,
+                          unselectedColor: const Color(0xff4c505c)),
+
+                      SalomonBottomBarItem(
+                          icon: const Icon(CupertinoIcons.chart_bar_alt_fill),
+                          title: const Text("DashBoard"),
+                          selectedColor: Palette.primaryColor,
+                          unselectedColor: const Color(0xff4c505c)),
+
+                      SalomonBottomBarItem(
+                          icon: const Icon(CupertinoIcons.chart_bar_alt_fill),
+                          title: const Text("Metrics"),
+                          selectedColor: Palette.primaryColor,
+                          unselectedColor: const Color(0xff4c505c)),
+
+                      SalomonBottomBarItem(
+                          icon: const Icon(CupertinoIcons.settings),
+                          title: const Text("Profile"),
+                          selectedColor: Palette.primaryColor,
+                          unselectedColor: const Color(0xff4c505c)),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
 }
