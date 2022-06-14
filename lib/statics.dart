@@ -51,6 +51,8 @@ class Palette {
   static const Color buttonColor = Color(0xff2f3346);
   static const Color googleColor = Color(0xFFDE4B39);
   static const Color backgroundColor = Color(0xff1a1c28);
+
+  static const Color cardColor = Color(0xff34394b);
 }
 
 const coinIconUrl =

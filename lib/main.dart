@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:olympe/screens/add_transaction.dart';
 import 'package:olympe/screens/screens.dart';
 
 import 'package:flutter_displaymode/flutter_displaymode.dart';
@@ -103,6 +104,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => initialFuntion(),
         '/home': (context) => const MyHomeScreen(),
         '/login': (context) => const LoginScreen(),
+        '/addTransaction': (context) => const AddTransaction(),
       },
     );
   }
