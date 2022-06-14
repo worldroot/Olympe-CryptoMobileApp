@@ -132,8 +132,8 @@ class _AddTransactionState extends State<AddTransaction> {
                       height: 20.0,
                       width: 20.0,
                       child: CachedNetworkImage(
-                        imageUrl:
-                            ((coinIconUrl + selectedUSD + ".png").toLowerCase()),
+                        imageUrl: ((coinIconUrl + selectedUSD + ".png")
+                            .toLowerCase()),
                         placeholder: (context, url) =>
                             const CircularProgressIndicator(),
                         errorWidget: (context, url, error) =>

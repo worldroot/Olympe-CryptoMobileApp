@@ -78,6 +78,7 @@ class _CoinChartPriceWidgetState extends State<CoinChartPriceWidget> {
         const Text(
           'Volatility change',
           style: TextStyle(
+            fontFamily: "Oswald",
             color: Colors.white,
             fontSize: 17,
             letterSpacing: 2,

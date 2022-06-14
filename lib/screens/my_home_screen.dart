@@ -117,13 +117,14 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                     items: [
                       /// Home
                       SalomonBottomBarItem(
-                          icon: const Icon(CupertinoIcons.money_dollar),
+                          icon: const Icon(CupertinoIcons.bitcoin_circle),
                           title: const Text("Crypto"),
                           selectedColor: Palette.primaryColor,
                           unselectedColor: const Color(0xff4c505c)),
 
                       SalomonBottomBarItem(
-                          icon: const Icon(CupertinoIcons.chart_bar_alt_fill),
+                          icon: const Icon(
+                              CupertinoIcons.arrow_right_arrow_left_circle),
                           title: const Text("DashBoard"),
                           selectedColor: Palette.primaryColor,
                           unselectedColor: const Color(0xff4c505c)),
@@ -135,7 +136,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                           unselectedColor: const Color(0xff4c505c)),
 
                       SalomonBottomBarItem(
-                          icon: const Icon(CupertinoIcons.settings),
+                          icon: const Icon(CupertinoIcons.profile_circled),
                           title: const Text("Profile"),
                           selectedColor: Palette.primaryColor,
                           unselectedColor: const Color(0xff4c505c)),

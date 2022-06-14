@@ -34,7 +34,9 @@ class WalletButton extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30)),
               child: Icon(icon, color: textColor)),
           const SizedBox(height: 10),
-          Text(text, style: const TextStyle(fontSize: 15, color: Colors.white))
+          Text(text,
+              style: const TextStyle(
+                  fontFamily: "Oswald", fontSize: 15, color: Colors.white))
         ],
       ),
     );

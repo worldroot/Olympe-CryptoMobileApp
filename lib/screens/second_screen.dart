@@ -172,6 +172,7 @@ class _SecondScreenState extends State<SecondScreen>
                                       child: Text(
                                         "Current Balance",
                                         style: TextStyle(
+                                          fontFamily: "Oswald",
                                           color: Colors.white.withOpacity(0.9),
                                           fontSize: 18,
                                         ),
@@ -189,10 +190,10 @@ class _SecondScreenState extends State<SecondScreen>
                                     color: Colors.white, size: 35),
                                 Center(
                                   child: Text(
-                                    "500 DT",
+                                    "500",
                                     style: TextStyle(
+                                        fontFamily: "Oswald",
                                         color: Colors.white,
-                                        fontWeight: FontWeight.w600,
                                         fontSize: 35),
                                   ),
                                 ),
@@ -224,7 +225,7 @@ class _SecondScreenState extends State<SecondScreen>
                                   icon: CupertinoIcons.arrow_2_circlepath,
                                   backgroundColor: Palette.primaryColor,
                                   textColor: Colors.white,
-                                  text: "Sync",
+                                  text: ("Sync"),
                                   onPressed: () {
                                     print("test");
                                   }),
@@ -248,7 +249,10 @@ class _SecondScreenState extends State<SecondScreen>
                         margin: const EdgeInsets.only(bottom: 5, top: 40),
                         child: const Text(
                           "Your Activity",
-                          style: TextStyle(color: Colors.white, fontSize: 20),
+                          style: TextStyle(
+                              fontFamily: "Oswald",
+                              color: Colors.white,
+                              fontSize: 20),
                         ),
                       ),
                       Padding(

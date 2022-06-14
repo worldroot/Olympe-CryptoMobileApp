@@ -75,18 +75,18 @@ class _CoinChartWidgetState extends State<CoinChartWidget> {
             ),
           ),
         ),
-        const Align(
-          alignment: Alignment.topRight,
-          child: Text(
-            '         Volatility change',
-            style: TextStyle(
-              fontFamily: "Oswald",
-              color: Colors.white,
-              fontSize: 18,
-              letterSpacing: 2,
-            ),
-          ),
-        )
+        //    const Align(
+        //     alignment: Alignment.topRight,
+        //      child: Text(
+        //        '         Volatility change',
+        //        style: TextStyle(
+        //          fontFamily: "Oswald",
+        //          color: Colors.white,
+        //          fontSize: 18,
+        //          letterSpacing: 2,
+        //        ),
+        //      ),
+        //    )
 
         // SizedBox(
         //   width: 60,
