@@ -43,7 +43,6 @@ class TransactionController {
     //   'acountBalanceCOIN': transaction.acountBalanceCOIN,
     // };
 
- 
     final response = await _requestController.post(
         apiRoute: "api/transactions/add",
         body: transaction.toJson(),
@@ -76,7 +75,8 @@ class TransactionController {
       'acountBalanceUSD': transaction.acountBalanceUSD,
       'acountBalanceCOIN': transaction.acountBalanceCOIN,
     }, headers: {
-      'Authorization': 'Bearer $token'
+      'Authorization': 'Bearer $token',
+      'content-type': 'application/json'
     });
 
     if (response.statusCode == 200) {
