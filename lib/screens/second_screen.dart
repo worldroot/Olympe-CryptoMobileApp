@@ -21,6 +21,7 @@ class _SecondScreenState extends State<SecondScreen>
   bool get wantKeepAlive => true;
 
   final TransactionController transactionController = TransactionController();
+  late double? currentBalance;
 
   @override
   void initState() {
@@ -30,10 +31,19 @@ class _SecondScreenState extends State<SecondScreen>
 
   fetchTransactions() {
     transactionController.getTransactions().then((list) {
-      if (list != null) {
+      currentBalance = 0;
+
+      if (list != null && currentBalance != null) {
         setState(() {
           transactions = list;
           isLoading = false;
+          transactions.forEach((transaction) {
+            if (transaction.type == "IN" && currentBalance != null) {
+              currentBalance = transaction.usdAmount! + currentBalance!;
+            } else {
+              currentBalance = currentBalance! - transaction.usdAmount!;
+            }
+          });
         });
       } else {
         ShowSnackBar().showSnackBar(
@@ -101,13 +111,13 @@ class _SecondScreenState extends State<SecondScreen>
                           ),
                           Row(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const <Widget>[
-                                Icon(Icons.attach_money,
+                              children: <Widget>[
+                                const Icon(Icons.attach_money,
                                     color: Colors.white, size: 35),
                                 Center(
                                   child: Text(
-                                    "500",
-                                    style: TextStyle(
+                                    currentBalance!.toStringAsFixed(2),
+                                    style: const TextStyle(
                                         fontFamily: "Oswald",
                                         color: Colors.white,
                                         fontSize: 35),

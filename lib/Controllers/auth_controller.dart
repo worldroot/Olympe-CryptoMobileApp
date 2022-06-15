@@ -10,10 +10,14 @@ class AuthController {
   final RequestController _requestController = RequestController();
 
   Future<User> login(String username, String password) async {
+    final Map<String, String> data = <String, String>{};
+    data['username'] = username;
+    data['password'] = password;
+
     final response = await _requestController.post(
         apiRoute: "api/users/login",
-        body: <String,String>{'username': username, 'password': password},
-        headers: {});
+        body: data,
+        headers: {'content-type': 'application/json'});
     if (response.statusCode == 200) {
       var body = json.decode(response.body);
       User user = User.fromJson(body);
@@ -32,7 +36,9 @@ class AuthController {
       'username': username,
       'password': password,
       'phone': phone,
-    }, headers: {});
+    }, headers: {
+      'content-type': 'application/json'
+    });
 
     if (response.statusCode == 200) {
       var body = json.decode(response.body);
@@ -42,7 +48,4 @@ class AuthController {
       return User.withError();
     }
   }
-
-
-
 }
