@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:olympe/statics.dart';
 
 class ProfilePic extends StatelessWidget {
   const ProfilePic({
@@ -19,7 +20,7 @@ class ProfilePic extends StatelessWidget {
         children: [
           CachedNetworkImage(
             imageUrl:
-                (("https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/icon/btc.png")
+                (("https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/icon/cloak.png")
                     .toLowerCase()),
             placeholder: (context, url) => const CircularProgressIndicator(),
             errorWidget: (context, url, error) =>
@@ -38,15 +39,10 @@ class ProfilePic extends StatelessWidget {
                     side: const BorderSide(color: Colors.white),
                   ),
                   primary: Colors.white,
-                  backgroundColor: const Color(0xFFF5F6F9),
+                  backgroundColor: Palette.backgroundColor,
                 ),
                 onPressed: () {},
-                child: SvgPicture.asset(
-                  "assets/icons/edit.svg",
-                  color: Colors.black,
-                  height: 24,
-                  width: 24,
-                ),
+                child: const Icon(Icons.photo_camera_rounded),
               ),
             ),
           )
