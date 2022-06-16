@@ -27,60 +27,30 @@ class _CoinRandomedChartWidgetState extends State<CoinRandomedChartWidget> {
   final List<bool> _isSelected = [true, false, false, false, false];
   @override
   Widget build(BuildContext context) {
-    return SliverPersistentHeader(
-      pinned: true,
-      delegate: SliverAppBarDelegate(
-        minHeight: 400.0,
-        maxHeight: 400.0,
+    return Scaffold(
+      body: Container(
         child: Padding(
           padding: const EdgeInsets.only(top: 32.0),
           child: Column(
             children: [
               Text(
                 '\$' + widget.coinPrice.price.toStringAsFixed(2),
-                style: Theme.of(context).textTheme.headline4,
+                style: const TextStyle(
+                    fontFamily: "Oswald", color: Colors.white, fontSize: 20),
               ),
               Text(
                 widget.outputDate,
                 style: const TextStyle(
-                  fontFamily: 'Roboto',
+                  fontFamily: 'Oswald',
                   fontSize: 18,
                   color: Colors.grey,
                 ),
               ),
-              CoinChartPriceWidget(
+              CoinChartWidget(
                   coinPrice: widget.coinPrice,
                   color: Colors.green,
                   data: widget.data),
               const SizedBox(height: 8.0),
-              ToggleButtons(
-                borderRadius: BorderRadius.circular(8.0),
-                borderColor: Colors.indigoAccent,
-                color: Colors.white,
-                fillColor: Colors.green,
-                selectedColor: Colors.white,
-                selectedBorderColor: Colors.indigoAccent,
-                children: const [
-                  ToggleButtonWidget(name: "Today"),
-                  ToggleButtonWidget(name: "1W"),
-                  ToggleButtonWidget(name: "1M"),
-                  ToggleButtonWidget(name: "3M"),
-                  ToggleButtonWidget(name: "6M"),
-                ],
-                isSelected: _isSelected,
-                onPressed: (int newIndex) {
-                  setState(() {
-                    for (int i = 0; i < _isSelected.length; i++) {
-                      if (i == newIndex) {
-                        _isSelected[i] = true;
-                      } else {
-                        _isSelected[i] = false;
-                      }
-                    }
-                  });
-                },
-              ),
-              const SizedBox(height: 8.0)
             ],
           ),
         ),

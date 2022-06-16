@@ -132,6 +132,100 @@ class _MetricsScreenState extends State<MetricsScreen>
                           ),
                         ),
                       ),
+                      GlassMorphism(
+                          color: Colors.transparent,
+                          blur: 10,
+                          myWidth: 40,
+                          myHeight: double.infinity,
+                          opacity: 0.2,
+                          child: Text(
+                            " Total Volume 24H change : ${globalMetricsData!.quote!.uSD?.totalVolume24hYesterdayPercentageChange?.toStringAsFixed(2)} %"
+                                .toString(),
+                            style: const TextStyle(
+                                fontFamily: "Oswald",
+                                color: Colors.white,
+                                fontSize: 20),
+                          )),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.only(left: 20),
+                        margin: const EdgeInsets.only(bottom: 5, top: 10),
+                        child: const Text(
+                          "Volumes 24H",
+                          style: TextStyle(
+                              fontFamily: "Oswald",
+                              color: Colors.white,
+                              fontSize: 20),
+                        ),
+                      ),
+                      GlassMorphism(
+                        color: Colors.transparent,
+                        blur: 10,
+                        myWidth: 60,
+                        myHeight: double.infinity,
+                        opacity: 0.2,
+                        child: Container(
+                          padding: const EdgeInsets.only(left: 10),
+                          margin: const EdgeInsets.only(bottom: 5, top: 10),
+                          child: Text(
+                            " Total : ${globalMetricsData!.quote!.uSD!.totalVolume24h} \$"
+                                .toString(),
+                            style: const TextStyle(
+                                fontFamily: "Oswald",
+                                color: Colors.white,
+                                fontWeight: FontWeight.w800,
+                                fontSize: 20),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      GlassMorphism(
+                        color: Colors.transparent,
+                        blur: 10,
+                        myWidth: 60,
+                        myHeight: double.infinity,
+                        opacity: 0.2,
+                        child: Container(
+                          padding: const EdgeInsets.only(left: 10),
+                          margin: const EdgeInsets.only(bottom: 5, top: 10),
+                          child: Text(
+                            " Altcoin: ${globalMetricsData!.quote!.uSD!.altcoinVolume24h} \$"
+                                .toString(),
+                            style: const TextStyle(
+                                fontFamily: "Oswald",
+                                color: Colors.white,
+                                fontWeight: FontWeight.w800,
+                                fontSize: 20),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      GlassMorphism(
+                        color: Colors.transparent,
+                        blur: 10,
+                        myWidth: 60,
+                        myHeight: double.infinity,
+                        opacity: 0.2,
+                        child: Container(
+                          padding: const EdgeInsets.only(left: 10),
+                          margin: const EdgeInsets.only(bottom: 5, top: 10),
+                          child: Text(
+                            "Stable Coin : ${globalMetricsData!.quote!.uSD!.altcoinVolume24h} \$"
+                                .toString(),
+                            style: const TextStyle(
+                                fontFamily: "Oswald",
+                                color: Colors.white,
+                                fontWeight: FontWeight.w800,
+                                fontSize: 20),
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ),

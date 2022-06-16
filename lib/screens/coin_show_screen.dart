@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:olympe/models/FetchCoins/chart_data_model.dart';
 import 'package:olympe/models/FetchCoins/coin_data_model.dart';
+import 'package:olympe/statics.dart';
+import 'package:olympe/widgets/coin_chart_widget.dart';
 import 'package:olympe/widgets/coin_show_chart_widget.dart';
 import 'package:olympe/widgets/coin_show_app_bar.dart';
 
@@ -35,35 +37,48 @@ class CoinShowScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(11, 12, 54, 1),
-      body: CustomScrollView(
-        slivers: [
+      backgroundColor: Palette.backgroundColor,
+      appBar: AppBar(
+        backgroundColor: Palette.backgroundColor,
+        elevation: 0,
+        title: const Text(
+          "Coin",
+        ),
+        toolbarHeight: 100,
+      ),
+      body: SingleChildScrollView(
+        child: Column(children: [
           CoinShowAppBar(coin: coin, coinIconUrl: coinIconUrl),
-          CoinRandomedChartWidget(
-              coinPrice: coinPrice, outputDate: outputDate, data: data),
-          SliverToBoxAdapter(
+          CoinChartWidget(coinPrice: coinPrice, data: data, color: Colors.grey),
+          Container(
             child: SizedBox(
-              height: 600,
+              height: 350,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 20.0),
-                    height: 500.0,
+                    height: 250.0,
                     width: 500.0,
                     child: Column(
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Text(
+                            const Text(
                               "Circulating Supply: ",
-                              style: Theme.of(context).textTheme.subtitle1,
+                              style: TextStyle(
+                                  fontFamily: "Oswald",
+                                  color: Colors.white,
+                                  fontSize: 20),
                             ),
                             const SizedBox(height: 8.0),
                             Text(
                               coin.circulatingSupply.toString(),
-                              style: Theme.of(context).textTheme.headline6,
+                              style: const TextStyle(
+                                  fontFamily: "Oswald",
+                                  color: Colors.white,
+                                  fontSize: 20),
                             ),
                           ],
                         ),
@@ -71,13 +86,19 @@ class CoinShowScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Text(
+                            const Text(
                               "Max Supply: ",
-                              style: Theme.of(context).textTheme.subtitle1,
+                              style: TextStyle(
+                                  fontFamily: "Oswald",
+                                  color: Colors.white,
+                                  fontSize: 20),
                             ),
                             Text(
                               coin.maxSupply.toString(),
-                              style: Theme.of(context).textTheme.headline6,
+                              style: const TextStyle(
+                                  fontFamily: "Oswald",
+                                  color: Colors.white,
+                                  fontSize: 20),
                             ),
                           ],
                         ),
@@ -85,13 +106,19 @@ class CoinShowScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Text(
+                            const Text(
                               "Market pairs: ",
-                              style: Theme.of(context).textTheme.subtitle1,
+                              style: TextStyle(
+                                  fontFamily: "Oswald",
+                                  color: Colors.white,
+                                  fontSize: 20),
                             ),
                             Text(
                               coin.numMarketPairs.toString(),
-                              style: Theme.of(context).textTheme.headline6,
+                              style: const TextStyle(
+                                  fontFamily: "Oswald",
+                                  color: Colors.white,
+                                  fontSize: 20),
                             ),
                           ],
                         ),
@@ -99,14 +126,20 @@ class CoinShowScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Text(
+                            const Text(
                               "Market Cap: ",
-                              style: Theme.of(context).textTheme.subtitle1,
+                              style: TextStyle(
+                                  fontFamily: "Oswald",
+                                  color: Colors.white,
+                                  fontSize: 20),
                             ),
                             Text(
                               coin.quoteModel.usdModel.marketCap
                                   .toStringAsFixed(2),
-                              style: Theme.of(context).textTheme.headline6,
+                              style: const TextStyle(
+                                  fontFamily: "Oswald",
+                                  color: Colors.white,
+                                  fontSize: 20),
                             ),
                           ],
                         ),
@@ -118,7 +151,7 @@ class CoinShowScreen extends StatelessWidget {
               ),
             ),
           )
-        ],
+        ]),
       ),
     );
   }
