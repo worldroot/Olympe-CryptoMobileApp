@@ -7,15 +7,15 @@ enum Environment {
   development,
 }
 
-Environment env = Environment.development;
+Environment env = Environment.production;
 
 String baseURL = (env == Environment.development)
-    ? "10.0.2.2:5000" // or 10.0.2.2:3000
-    : "guitare.herokuapp.com";
+    ? "https://olympe-backend.herokuapp.com/" // or 10.0.2.2:3000 or 169.254.157.218 or 127.0.0.1:5050 si le backend est en local
+    : "olympe-backend.herokuapp.com";
 
 String baseUploadsURL = (env == Environment.development)
     ? "http://10.0.2.2:5000/uploads/"
-    : "https://guitare.herokuapp.com/uploads/";
+    : "https://olympe-backend.herokuapp.com/";
 
 DateFormat datetimeFormat = DateFormat("dd/MM/yyyy HH:mm");
 DateFormat dateFormat = DateFormat("dd/MM/yyyy");
@@ -23,7 +23,6 @@ DateFormat dateFormat = DateFormat("dd/MM/yyyy");
 String capitalize(String msg) {
   return '${msg[0].toUpperCase()}${msg.substring(1)}';
 }
-
 
 ThemeData themeDarkData(BuildContext context) {
   return ThemeData(
