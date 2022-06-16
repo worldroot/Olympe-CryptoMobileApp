@@ -4,6 +4,7 @@ import 'package:olympe/Controllers/auth_controller.dart';
 import 'package:olympe/components/background.dart';
 import 'package:olympe/components/snackbar.dart';
 import 'package:olympe/screens/register_screen.dart';
+import 'package:olympe/statics.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -52,7 +53,6 @@ class _LoginScreenState extends State<LoginScreen> {
         box.put('avatar', connectedUser.avatar!);
         box.put('token', connectedUser.token!);
 
-
         Navigator.popAndPushNamed(context, "/home");
       } else {
         ShowSnackBar().showSnackBar(
@@ -70,6 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: Palette.backgroundColor,
       body: Background(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -92,7 +93,10 @@ class _LoginScreenState extends State<LoginScreen> {
               margin: const EdgeInsets.symmetric(horizontal: 40),
               child: TextField(
                 controller: usernamecontroller,
-                decoration: const InputDecoration(labelText: "Username"),
+                decoration: const InputDecoration(
+                    labelText: "Username",
+                    labelStyle: TextStyle(color: Colors.white)),
+                style: const TextStyle(color: Colors.white),
               ),
             ),
             SizedBox(height: size.height * 0.03),
@@ -101,7 +105,10 @@ class _LoginScreenState extends State<LoginScreen> {
               margin: const EdgeInsets.symmetric(horizontal: 40),
               child: TextField(
                 controller: passwordcontroller,
-                decoration: const InputDecoration(labelText: "Password"),
+                decoration: const InputDecoration(
+                    labelText: "Password",
+                    labelStyle: TextStyle(color: Colors.white)),
+                style: const TextStyle(color: Colors.white),
                 obscureText: true,
               ),
             ),

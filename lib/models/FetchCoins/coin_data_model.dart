@@ -37,7 +37,7 @@ class CoinDataModel {
       json["symbol"],
       json["slug"],
       json["num_market_pairs"],
-      json["date_added"],
+      json["date_added"] ?? "",
       json["tags"],
       json["max_supply"] ?? 0,
       json["circulating_supply"],
