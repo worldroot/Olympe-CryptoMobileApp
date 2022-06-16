@@ -23,6 +23,7 @@ class _MetricsScreenState extends State<MetricsScreen>
   final Repository repository = Repository();
   int touchedIndex = 0;
   Data? globalMetricsData;
+  Color colorChange = Colors.red;
   @override
   void initState() {
     super.initState();
@@ -33,6 +34,12 @@ class _MetricsScreenState extends State<MetricsScreen>
     repository.getGlobalMetrics().then((list) {
       setState(() {
         globalMetricsData = list.data;
+
+        colorChange = (globalMetricsData!
+                    .quote!.uSD!.totalVolume24hYesterdayPercentageChange! <
+                0)
+            ? const Color(0xff5fae58)
+            : Colors.red;
         isLoading = false;
       });
     });
@@ -141,9 +148,9 @@ class _MetricsScreenState extends State<MetricsScreen>
                           child: Text(
                             " Total Volume 24H change : ${globalMetricsData!.quote!.uSD?.totalVolume24hYesterdayPercentageChange?.toStringAsFixed(2)} %"
                                 .toString(),
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontFamily: "Oswald",
-                                color: Colors.white,
+                                color: colorChange,
                                 fontSize: 20),
                           )),
                       const SizedBox(
