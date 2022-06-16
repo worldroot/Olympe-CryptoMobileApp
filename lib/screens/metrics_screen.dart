@@ -23,7 +23,7 @@ class _MetricsScreenState extends State<MetricsScreen>
   final Repository repository = Repository();
   int touchedIndex = 0;
   Data? globalMetricsData;
-  Color colorChange = Colors.red;
+  Color colorChange = Colors.white;
   @override
   void initState() {
     super.initState();
@@ -38,8 +38,8 @@ class _MetricsScreenState extends State<MetricsScreen>
         colorChange = (globalMetricsData!
                     .quote!.uSD!.totalVolume24hYesterdayPercentageChange! <
                 0)
-            ? const Color(0xff5fae58)
-            : Colors.red;
+            ? Colors.red
+            : const Color(0xff5fae58);
         isLoading = false;
       });
     });
