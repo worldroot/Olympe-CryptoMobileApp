@@ -66,7 +66,7 @@ class _AddTransactionINState extends State<AddTransactionIN> {
           color: const Color(0xff181a26),
           borderRadius: BorderRadius.circular(30)),
       width: MediaQuery.of(context).size.width - 40,
-      height: 60,
+      height: 70,
       padding: const EdgeInsets.all(5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -273,7 +273,7 @@ class _AddTransactionINState extends State<AddTransactionIN> {
         title: const Text(
           "Add Transaction (IN)",
         ),
-        toolbarHeight: 70,
+        toolbarHeight: 100,
       ),
       body: coins.isEmpty
           ? const Center(
@@ -323,7 +323,7 @@ class _AddTransactionINState extends State<AddTransactionIN> {
                                     padding: const EdgeInsets.only(
                                         left: 10, bottom: 5),
                                     child: const Text(
-                                      "Acount usd",
+                                      "Equivalent in usdt",
                                       style: TextStyle(color: Colors.white70),
                                     )),
                                 _buildAcountUSDTextField(),
@@ -390,6 +390,7 @@ class _AddTransactionINState extends State<AddTransactionIN> {
                             height: 1,
                             color: Colors.white10,
                           ),
+                          const SizedBox(height: 15),
                           GestureDetector(
                             onTap: addTransaction,
                             child: Container(
