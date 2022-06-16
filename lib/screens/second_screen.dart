@@ -142,7 +142,7 @@ class _SecondScreenState extends State<SecondScreen>
                                   textColor: Colors.white,
                                   onPressed: () {
                                     Navigator.pushNamed(
-                                            context, "/addTransaction/IN")
+                                            context, "/addTransaction/OUT")
                                         .then((value) {
                                       if (value == "refresh") {
                                         print("refreshing transactions");
@@ -171,7 +171,7 @@ class _SecondScreenState extends State<SecondScreen>
                                   text: "Receive",
                                   onPressed: () {
                                     Navigator.pushNamed(
-                                            context, "/addTransaction/OUT")
+                                            context, "/addTransaction/IN")
                                         .then((value) {
                                       if (value == "refresh") {
                                         print("refreshing transactions");

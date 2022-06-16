@@ -300,7 +300,7 @@ class _AddTransactionINState extends State<AddTransactionIN> {
                           ),
                         ],
                       ),
-                      height: MediaQuery.of(context).size.height - 320,
+                      height: MediaQuery.of(context).size.height - 200,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

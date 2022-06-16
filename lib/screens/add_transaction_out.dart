@@ -300,7 +300,7 @@ class _AddTransactionOUTState extends State<AddTransactionOUT> {
                           ),
                         ],
                       ),
-                      height: MediaQuery.of(context).size.height - 320,
+                      height: MediaQuery.of(context).size.height - 200,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
